@@ -141,7 +141,7 @@ fun GameScreen(gameViewModel: GameViewModel = viewModel()) {
         )
         Button(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { gameViewModel.saveNewWord() } // GANTI DISINI
+            onClick = { gameViewModel.saveNewWord() }
         ) {
             Text(
                 text = "Simpan",

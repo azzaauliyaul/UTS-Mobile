@@ -19,7 +19,6 @@ package com.example.unscramble
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
@@ -27,7 +26,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.room.Room
-import com.example.unscramble.data.AppDatabase
+import com.example.unscramble.data.WordDatabase
 import com.example.unscramble.ui.GameScreen
 import com.example.unscramble.ui.GameViewModel
 import com.example.unscramble.ui.theme.UnscrambleTheme
@@ -39,7 +38,7 @@ class MainActivity : ComponentActivity() {
         // Inisialisasi Database
         val db = Room.databaseBuilder(
             applicationContext,
-            AppDatabase::class.java, "word_db"
+            WordDatabase::class.java, "word_db"
         ).build()
 
         setContent {

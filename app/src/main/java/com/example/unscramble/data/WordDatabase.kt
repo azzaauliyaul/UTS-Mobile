@@ -6,18 +6,18 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [WordEntity::class], version = 1, exportSchema = false)
-abstract class AppDatabase : RoomDatabase() {
+abstract class WordDatabase : RoomDatabase() {
     abstract fun wordDao(): WordDao
 
     companion object {
         @Volatile
-        private var Instance: AppDatabase? = null
+        private var Instance: WordDatabase? = null
 
-        fun getDatabase(context: Context): AppDatabase {
+        fun getDatabase(context: Context): WordDatabase {
             return Instance ?: synchronized(this) {
                 Room.databaseBuilder(
                     context,
-                    AppDatabase::class.java,
+                    WordDatabase::class.java,
                     "unscramble_db"
                 ).build().also { Instance = it }
             }
