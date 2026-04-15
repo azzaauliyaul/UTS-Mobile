@@ -126,7 +126,17 @@ fun GameScreen(gameViewModel: GameViewModel = viewModel()) {
                 onPlayAgain = { gameViewModel.resetGame() }
             )
         }
+        OutlinedTextField(
+            value = gameViewModel.addWords,
+            onValueChange = { gameViewModel.updateAddWords(it) },
+            label = { Text("Tambah kata baru") },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth()
+        )
+
+
     }
+
 }
 
 @Composable
@@ -209,6 +219,7 @@ fun GameLayout(
                     onDone = { onKeyboardDone() }
                 )
             )
+
         }
     }
 }

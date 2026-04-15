@@ -35,8 +35,10 @@ class GameViewModel : ViewModel() {
 
     // Game UI state
     private val _uiState = MutableStateFlow(GameUiState())
+    private val userWords = mutableListOf<String>()
     val uiState: StateFlow<GameUiState> = _uiState.asStateFlow()
-
+    var addWords by mutableStateOf("")
+        private set
     var userGuess by mutableStateOf("")
         private set
 
@@ -63,6 +65,9 @@ class GameViewModel : ViewModel() {
         userGuess = guessedWord
     }
 
+    fun updateAddWords(word: String) {
+        addWords = word
+    }
     /*
      * Checks if the user's guess is correct.
      * Increases the score accordingly.
